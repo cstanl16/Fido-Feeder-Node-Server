@@ -6,7 +6,7 @@ const budgetSchema = new Schema(
         username: {
             type: String,
             required: true,
-            unique: true,
+            unique: false,
             trim: true,
             minLength: 5,
             maxLength: 50
