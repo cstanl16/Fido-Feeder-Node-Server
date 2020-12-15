@@ -2,7 +2,7 @@ const router = require('express').Router();
 let Budget = require('../models/budget.model');
 
 router.route('/').get((req, res) => {
-    Budget.find()
+    Budget.find({username: req.params.username})
         .then(budget => res.json(budget))
         .catch(err => res.status(400).json('Error: ' + err));
 });
