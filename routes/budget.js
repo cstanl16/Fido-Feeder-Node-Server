@@ -2,7 +2,7 @@ const router = require('express').Router();
 let Budget = require('../models/budget.model');
 
 router.route('/').get((req, res) => {
-    Budget.find({username: req.params.username})
+    Budget.find() //{username: req.params.username}
         .then(budget => res.json(budget))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -27,6 +27,11 @@ router.route('/add').post((req, res) => {
 
 router.route('/:id').get((req, res) => {
     Budget.findById(req.params.id)
+        .then(budget => res.json(budget))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/username').get((req, res) => {
+    Budget.findByUsername(req.params.username)
         .then(budget => res.json(budget))
         .catch(err => res.status(400).json('Error: ' + err));
 });
