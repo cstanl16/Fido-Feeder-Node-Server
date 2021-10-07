@@ -16,7 +16,7 @@ const foodSchema = new Schema(
             required: true
         },
         foodSafe: {
-            type: Number,
+            type: String,
             required: true
         },
         foodNotes: {
