@@ -1,33 +1,30 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const budgetSchema = new Schema(
+const foodSchema = new Schema(
     {
-        username: {
+        foodName: {
             type: String,
             required: true,
             unique: false,
             trim: true,
-            minLength: 5,
+            minLength: 3,
             maxLength: 50
         },
-        description: {
+        foodType: {
             type: String,
             required: true
         },
-        cost: {
+        foodSafe: {
             type: Number,
             required: true
         },
-        date: {
-            type: Date,
+        foodNotes: {
+            type: String,
             required: true
         }
-    },
-    {
-        timestamps: true,
     });
 
-    const Budget = mongoose.model('Budget', budgetSchema);
+    const Food = mongoose.model('Food', foodSchema);
 
-    module.exports = Budget;
+    module.exports = Food;
