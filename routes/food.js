@@ -10,7 +10,7 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const foodName = req.body.foodName;
     const foodType = req.body.foodType;
-    const foodSafe = Number(req.body.foodSafe);
+    const foodSafe = req.body.foodSafe;
     const foodNotes = req.body.foodNotes;
 
     const newFood = new Food({
