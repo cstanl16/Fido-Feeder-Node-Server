@@ -21,7 +21,7 @@ const foodSchema = new Schema(
         },
         foodNotes: {
             type: String,
-            required: true
+            required: false
         }
     });
 
