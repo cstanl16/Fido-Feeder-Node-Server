@@ -13,7 +13,6 @@ router.route('/add').post((req, res) => {
     const username = req.body.username;
     const name = req.body.name;
     const email = req.body.email;
-    const password = req.body.password;
     const dogType = req.body.dogType;
     const dogName = req.body.dogName;
 
@@ -21,7 +20,6 @@ router.route('/add').post((req, res) => {
         username,
         name,
         email,
-        password,
         dogType,
         dogName
     });
