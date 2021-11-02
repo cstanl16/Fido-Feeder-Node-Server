@@ -9,13 +9,6 @@ router.route('/').get((req, res) => {
 
 });
 
-router.route('/:username').get((req, res) => {
-    User.findByusername(req.params.username)
-        .then(user => res.json(user))
-        .catch(err => res.status(400).json('Error: ' + err));
-
-});
-
 router.route('/add').post((req, res) => {
     const username = req.body.username;
     const name = req.body.name;
@@ -34,6 +27,13 @@ router.route('/add').post((req, res) => {
     newUser.save()
         .then(() => res.json('User added!'))
         .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:username').get((req, res) => {
+    User.findOne({username: req.params.username})
+        .then(user => res.json(user))
+        .catch(err => res.status(400).json('Error: ' + err));
+
 });
 
 module.exports = router;
