@@ -10,8 +10,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/:username').get((req, res) => {
-
-    User.find() //{username: req.params.username}
+    User.findByusername(req.params.username)
         .then(user => res.json(user))
         .catch(err => res.status(400).json('Error: ' + err));
 
