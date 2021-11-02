@@ -9,14 +9,6 @@ router.route('/').get((req, res) => {
 
 });
 
-router.route('/username').get((req, res) => {
-
-    User.find(req.params.username) //{username: req.params.username}
-        .then(user => res.json(user))
-        .catch(err => res.status(400).json('Error: ' + err));
-
-});
-
 router.route('/add').post((req, res) => {
     const username = req.body.username;
     const name = req.body.name;
