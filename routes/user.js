@@ -29,6 +29,21 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/update/:username').post((req, res) => {
+    User.findOne({username: req.params.username})
+         .then(user => {
+            user.name = req.body.name;
+            user.email = req.body.email;
+            user.dogType = req.body.dogType;
+            user.dogName = req.body.dogName;
+            
+            user.save()
+                .then(() => res.json('User has been updated!'))
+                .catch(err => res.status(406).json('Error: ' + err)); 
+        }) 
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/:username').get((req, res) => {
     User.findOne({username: req.params.username})
         .then(user => res.json(user))
