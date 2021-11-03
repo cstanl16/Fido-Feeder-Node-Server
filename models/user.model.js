@@ -11,19 +11,19 @@ const userSchema = new Schema(
         },
         name: {
             type: String,
-            required: true
+            required: false
         },
         email: {
             type: String,
-            required: true
+            required: false
         },
         dogType: {
             type: String,
-            required: true
+            required: false
         },
         dogName: {
             type: String,
-            required: true
+            required: false
         },
     });
 
