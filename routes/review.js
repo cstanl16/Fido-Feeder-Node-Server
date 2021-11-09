@@ -1,31 +1,29 @@
 const router = require('express').Router();
-let User = require('../models/user.model');
+let Review = require('../models/review.model');
 
 router.route('/').get((req, res) => {
 
-    User.find() //{username: req.params.username}
-        .then(user => res.json(user))
+    Review.find() 
+        .then(review => res.json(review))
         .catch(err => res.status(400).json('Error: ' + err));
 
 });
 
 router.route('/add').post((req, res) => {
-    const username = req.body.username;
-    const name = req.body.name;
-    const email = req.body.email;
-    const dogType = req.body.dogType;
-    const dogName = req.body.dogName;
+    const reviewerUsername = req.body.username;
+    const adId = req.body.adId;
+    const rating = req.body.rating;
+    const comments = req.body.comments;
 
-    const newUser = new User({
-        username,
-        name,
-        email,
-        dogType,
-        dogName
+    const newReview = new Review({
+        reviewerUsername,
+        adId,
+        rating,
+        comments
     });
 
-    newUser.save()
-        .then(() => res.json('User added!'))
+    newReview.save()
+        .then(() => res.json('Review added!'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
