@@ -30,11 +30,8 @@ router.route('/:id').get((req, res) => {
         .then(food => res.json(food))
         .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/username').get((req, res) => {
-    Food.findByUsername(req.params.foodName)
-        .then(food => res.json(food))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
+
+
 
 router.route('/:id').delete((req, res) => {
     Food.findByIdAndDelete(req.params.id)

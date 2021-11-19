@@ -10,21 +10,27 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
+    console.log(req.body.username);
+    console.log(req.body.adID);
+    console.log(req.body.username);
+    console.log(req.body.adID);
+                
     const reviewerUsername = req.body.username;
-    const adId = req.body.adId;
+    const adID= req.body.adID;
     const rating = req.body.rating;
     const comments = req.body.comments;
 
     const newReview = new Review({
         reviewerUsername,
-        adId,
+        adID,
         rating,
         comments
     });
 
     newReview.save()
         .then(() => res.json('Review added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+        .catch(err => res.status(402).json('Error: ' + err));
 });
+  
 
 module.exports = router;
